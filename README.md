@@ -11,42 +11,44 @@ Approach
 
 A Transformer sequence-to-sequence model is trained on various speech processing tasks, including multilingual speech recognition, speech translation, spoken language identification, and voice activity detection. These tasks are jointly represented as a sequence of tokens to be predicted by the decoder, allowing a single model to replace many stages of a traditional speech-processing pipeline. The multitask training format uses a set of special tokens that serve as task specifiers or classification targets.
 
-### 🏗️ Estrutura do Projeto
+### 🏗️ Project Structure
 
 ```
 ├── data/
-│   ├── raw/              # Dados originais (nunca editados)
-│   └── processed/        # Dados prontos para o modelo
-├── models/               # Artefatos binários (.pkl, .h5, etc.)
-├── notebooks/            # Exploração (EDA) e prototipagem rápida
-├── logs/                 # Logs
-├── src/                  # O "coração" do projeto
-│   ├── ingest.py         # Extração de dados (SQL, CSV, APIs)
-│   ├── logger_config.py  # Configurador do logger
-│   ├── preprocess.py     # Feature engineering e limpeza
-│   ├── train.py          # Script de treino e validação
-│   ├── transcriber.py    # Script de transcriçao de audio em texto
-│   └── predict.py        # Lógica de inferência
-├── tests/                # Testes para garantir a integridade dos dados
-└── config.yaml           # Onde a mágica (parâmetros) acontece
+│   ├── raw/              # Original data (never edited)
+│   └── processed/        # Model-ready data
+├── models/               # Binary artifacts (.pkl, .h5, etc.)
+├── notebooks/            # Exploratory Data Analysis (EDA) and rapid prototyping
+├── logs/                 # Log files
+├── src/                  # Core project source code
+│   ├── ingest.py         # Data extraction (SQL, CSV, APIs)
+│   ├── logger_config.py  # Logger configuration setup
+│   ├── preprocess.py     # Feature engineering and cleaning
+│   ├── train.py          # Training and validation script
+│   ├── transcriber.py    # Audio-to-text transcription script
+│   └── predict.py        # Inference logic
+├── tests/                # Unit tests to ensure data and code integrity
+└── config.yaml           # Where the magic (parameters) happens
 ```
 
-### ⚙️ Como Utilizar
+### ⚙️ How to Use
 
-    Instale as dependências:
+    Install dependencies:
     Bash
 
     pip install -r requirements.txt
 
-    Configure o projeto: Altere o config.yaml para definir caminhos de pastas e parâmetros do modelo.
+    Project Configuration: Change config.yaml to define paths, folders and model parameters.
 
-    Execute o Pipeline:
+    Pipeline execution:
 
-        Para processar: python src/preprocess.py
+        To transcribe audio: python src/transcriber.py
+        
+        To process: python src/preprocess.py
 
-        Para treinar: python src/train.py
+        To train: python src/train.py
 
-        Para prever: python src/predict.py --input data/sample.csv
+        To predict: python src/predict.py --input data/sample.csv
     
     # on Ubuntu or Debian
     sudo apt update && sudo apt install ffmpeg

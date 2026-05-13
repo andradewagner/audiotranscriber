@@ -1,0 +1,9 @@
+# Ignoraring data and models
+data/raw/*
+data/processed/*
+models/*
+
+# Keeping folder structure
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!models/.gitkeep

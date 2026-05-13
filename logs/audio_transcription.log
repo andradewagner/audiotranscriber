@@ -1,0 +1,22 @@
+2026-05-13 16:01:00,846 [INFO] (__main__) Starting pipeline for project: AudioTranscriptor
+2026-05-13 16:01:00,847 [INFO] (__main__) Experiment: base_model_transcription
+2026-05-13 16:01:00,847 [INFO] (__main__) Loading audio file from: ./data/raw/27042026.m4a
+2026-05-13 16:01:12,549 [INFO] (__main__) Audio loaded in 11.70 seconds.
+2026-05-13 16:01:12,549 [INFO] (__main__) Loading Whisper model ('base')...
+2026-05-13 16:01:15,372 [INFO] (__main__) Model loaded in 2.82 seconds.
+2026-05-13 16:01:15,372 [INFO] (__main__) Starting audio transcription...
+2026-05-13 16:09:50,332 [INFO] (__main__) Transcription completed in 514.96 seconds.
+2026-05-13 16:09:50,335 [WARNING] (__main__) File already exists at ./data/processed/27042026.txt and overwrite is set to False. Skipping save.
+2026-05-13 16:09:50,335 [INFO] (__main__) Process finished successfully!
+2026-05-13 16:09:50,335 [INFO] (__main__) Total time taken: 8m 49.49s (529.4887 seconds)
+2026-05-13 16:16:48,361 [INFO] (__main__) Starting pipeline for project: AudioTranscriptor
+2026-05-13 16:16:48,361 [INFO] (__main__) Experiment: base_model_transcription
+2026-05-13 16:16:48,361 [INFO] (__main__) Loading audio file from: ./data/raw/27042026.m4a
+2026-05-13 16:16:59,938 [INFO] (__main__) Audio loaded in 11.58 seconds.
+2026-05-13 16:16:59,939 [INFO] (__main__) Loading Whisper model ('turbo')...
+2026-05-13 16:17:09,994 [INFO] (__main__) Model loaded in 10.06 seconds.
+2026-05-13 16:17:09,995 [INFO] (__main__) Starting audio transcription...
+2026-05-13 16:23:40,958 [INFO] (__main__) Transcription completed in 390.96 seconds.
+2026-05-13 16:23:40,962 [INFO] (__main__) Saving transcription text to: ./data/processed/27042026v2.txt
+2026-05-13 16:23:40,962 [INFO] (__main__) Process finished successfully!
+2026-05-13 16:23:40,962 [INFO] (__main__) Total time taken: 6m 52.60s (412.6009 seconds)

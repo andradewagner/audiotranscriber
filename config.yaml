@@ -1,0 +1,18 @@
+# Project Metadata
+project_name: "AudioTranscriptor"
+experiment_name: "base_model_transcription"
+
+audio:
+  audio_path: "./data/raw/27042026.m4a"
+  transcriptions_path: "./data/processed/27042026v2.txt"
+  overwrite_transcriptions: false
+# Data Configuration
+dataset:
+
+logger:
+  formatter: "%(asctime)s [%(levelname)s] (%(name)s) %(message)s"
+  log_file: "logs/audio_transcription.log"
+  log_level: "INFO"
+
+whisper:
+  model: "turbo" # Options: tiny, base, small, medium, large, turbo

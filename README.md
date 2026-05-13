@@ -15,17 +15,20 @@ A Transformer sequence-to-sequence model is trained on various speech processing
 
 ```
 ├── data/
-│   ├── raw/            # Dados originais (nunca editados)
-│   └── processed/      # Dados prontos para o modelo
-├── models/             # Artefatos binários (.pkl, .h5, etc.)
-├── notebooks/          # Exploração (EDA) e prototipagem rápida
-├── src/                # O "coração" do projeto
-│   ├── ingest.py       # Extração de dados (SQL, CSV, APIs)
-│   ├── preprocess.py   # Feature engineering e limpeza
-│   ├── train.py        # Script de treino e validação
-│   └── predict.py      # Lógica de inferência
-├── tests/              # Testes para garantir a integridade dos dados
-└── config.yaml         # Onde a mágica (parâmetros) acontece
+│   ├── raw/              # Dados originais (nunca editados)
+│   └── processed/        # Dados prontos para o modelo
+├── models/               # Artefatos binários (.pkl, .h5, etc.)
+├── notebooks/            # Exploração (EDA) e prototipagem rápida
+├── logs/                 # Logs
+├── src/                  # O "coração" do projeto
+│   ├── ingest.py         # Extração de dados (SQL, CSV, APIs)
+│   ├── logger_config.py  # Configurador do logger
+│   ├── preprocess.py     # Feature engineering e limpeza
+│   ├── train.py          # Script de treino e validação
+│   ├── transcriber.py    # Script de transcriçao de audio em texto
+│   └── predict.py        # Lógica de inferência
+├── tests/                # Testes para garantir a integridade dos dados
+└── config.yaml           # Onde a mágica (parâmetros) acontece
 ```
 
 ### ⚙️ Como Utilizar

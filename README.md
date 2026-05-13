@@ -13,6 +13,7 @@ A Transformer sequence-to-sequence model is trained on various speech processing
 
 ### 🏗️ Estrutura do Projeto
 
+```
 ├── data/
 │   ├── raw/            # Dados originais (nunca editados)
 │   └── processed/      # Dados prontos para o modelo
@@ -25,6 +26,7 @@ A Transformer sequence-to-sequence model is trained on various speech processing
 │   └── predict.py      # Lógica de inferência
 ├── tests/              # Testes para garantir a integridade dos dados
 └── config.yaml         # Onde a mágica (parâmetros) acontece
+```
 
 ### ⚙️ Como Utilizar
 

@@ -1117,3 +1117,7 @@ Ela vai tirar o que? Ela vai tirar o que? Ela vai tirar o que? A gente vai fazer
 2026-05-18 20:05:43,498 [INFO] (pipeline) Loading text file from: ./data/processed/27042026v4-whisper-turbo.txt
 2026-05-18 20:05:43,499 [INFO] (pipeline) Text loaded. First 100 characters: Já comecei a gravar. Boa noite, hoje, dia 27 de abril de 2026, apenas para deixar registrado que tod
 2026-05-18 20:05:48,294 [INFO] (pipeline) Found 1 sentences.
+2026-05-18 20:24:27,266 [INFO] (pipeline) Starting text processing pipeline...
+2026-05-18 20:24:27,266 [INFO] (pipeline) Loading text file from: ./data/processed/27042026v4-whisper-turbo.txt
+2026-05-18 20:24:27,266 [INFO] (pipeline) Text loaded. First 100 characters: Já comecei a gravar. Boa noite, hoje, dia 27 de abril de 2026, apenas para deixar registrado que tod
+2026-05-18 20:24:32,251 [INFO] (pipeline) Found 1 sentences.

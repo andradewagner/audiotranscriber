@@ -53,11 +53,34 @@ class AudioTranscriberPipeline:
 
         self.logger.info("Starting audio transcription...")
         start_transcribe = time.perf_counter()
-        result = model.transcribe(audio)
+        
+        # Parâmetros adicionados para evitar alucinações e travamentos no modelo Turbo
+        result = model.transcribe(
+            audio,
+            temperature=0.0,
+            no_speech_threshold=0.6,
+            logprob_threshold=-1.0,
+            condition_on_previous_text=False
+        )
+        
         end_transcribe = time.perf_counter()
         self.logger.info(f"Transcription completed in {end_transcribe - start_transcribe:.2f} seconds.")
         
-        return result["text"]
+        texto_formatado = ""
+        fim_ultimo_segmento = 0.0
+
+        for segment in result["segments"]:
+            # Se a pausa entre o fim da última frase e o início desta for maior que 2.0 segundos
+            if segment["start"] - fim_ultimo_segmento > 2.0:
+                texto_formatado += "\n\n"  # Cria um novo parágrafo
+            else:
+                texto_formatado += " "  # Apenas continua na mesma linha
+                
+            texto_formatado += segment["text"].strip()
+            fim_ultimo_segmento = segment["end"]
+
+        # Corrigido: Retorna a string estruturada com parágrafos em vez do texto bruto em uma linha só
+        return texto_formatado.strip()
 
     def save_transcription(self, transcription: str) -> None:
         """Salva o texto no arquivo de saída configurado."""

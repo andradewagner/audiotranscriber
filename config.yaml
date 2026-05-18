@@ -4,7 +4,7 @@ experiment_name: "base_model_transcription"
 
 audio:
   audio_path: "./data/raw/27042026.m4a"
-  transcriptions_path: "./data/processed/27042026v2.txt"
+  transcriptions_path: "./data/processed/27042026v4-whisper-turbo.txt"
   overwrite_transcriptions: false
 # Data Configuration
 dataset:
@@ -16,3 +16,37 @@ logger:
 
 whisper:
   model: "turbo" # Options: tiny, base, small, medium, large, turbo
+
+text_processing:
+  tokenizer: nltk
+  tokenizer_language: "portuguese"
+
+  # Normalização
+  normalize_text: true
+  normalization_method: "NFKD"
+
+  # Stopwords
+  remove_stopwords: true
+
+  # Stemming
+  stemming: true
+  stemmer_type: "snowball"
+
+  # Lemmatização
+  lemmatization: true
+
+  # Remoção de ruído
+  remove_fillers: true
+  remove_special: true
+  remove_accents: true
+  lowercase: true
+
+  # spaCy
+  spacy:
+    model_name: "pt_core_news_md"
+
+  # Embeddings
+  embedder: sentence_transformers
+
+  # Vector store
+  vector_store: faiss

@@ -1,34 +1,54 @@
-### 🚀 Machine Learning Audio Transcriptor
+### 🚀 AudioTranscriptor — Machine Learning Speech-to-Text Pipeline
 
-### 💡 Description
+### 💡 Overview
 
-Whisper is a general-purpose speech recognition model. It is trained on a large dataset of diverse audio and is also a multitasking model that can perform multilingual speech recognition, speech translation, and language identification.
-Approach
+AudioTranscriptor é um pipeline modular e totalmente configurável para:
 
-Approach
+    Transcrição de áudio com Whisper
+
+    Processamento avançado de texto (normalização, stopwords, stemming, lematização)
+
+    Tokenização com NLTK ou spaCy
+
+    Preparação para embeddings e armazenamento vetorial (FAISS)
+
+Tudo é controlado via config.yaml, permitindo experimentação rápida sem alterar o código.
+
+### 🎙️ Whisper — Speech Recognition
+
+Whisper é um modelo Transformer multitarefa treinado em:
+
+    Reconhecimento de fala multilíngue
+
+    Tradução de fala
+
+    Identificação de idioma
+
+    Detecção de atividade de voz
+
+Ele substitui pipelines tradicionais com um único modelo seq2seq.
 
 ![Approach](https://pypi-camo.freetls.fastly.net/2f74e24341799e4f45c94c71c291603f5337f040/68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f6f70656e61692f776869737065722f6d61696e2f617070726f6163682e706e67)
 
-A Transformer sequence-to-sequence model is trained on various speech processing tasks, including multilingual speech recognition, speech translation, spoken language identification, and voice activity detection. These tasks are jointly represented as a sequence of tokens to be predicted by the decoder, allowing a single model to replace many stages of a traditional speech-processing pipeline. The multitask training format uses a set of special tokens that serve as task specifiers or classification targets.
 
 ### 🏗️ Project Structure
 
 ```
 ├── data/
-│   ├── raw/              # Original data (never edited)
-│   └── processed/        # Model-ready data
-├── models/               # Binary artifacts (.pkl, .h5, etc.)
-├── notebooks/            # Exploratory Data Analysis (EDA) and rapid prototyping
-├── logs/                 # Log files
-├── src/                  # Core project source code
-│   ├── ingest.py         # Data extraction (SQL, CSV, APIs)
-│   ├── logger_config.py  # Logger configuration setup
-│   ├── preprocess.py     # Feature engineering and cleaning
-│   ├── train.py          # Training and validation script
-│   ├── transcriber.py    # Audio-to-text transcription script
-│   └── predict.py        # Inference logic
-├── tests/                # Unit tests to ensure data and code integrity
-└── config.yaml           # Where the magic (parameters) happens
+│   ├── raw/              # Áudios originais
+│   └── processed/        # Transcrições e textos processados
+├── models/               # Artefatos de modelos
+├── notebooks/            # EDA e prototipação
+├── logs/                 # Arquivos de log
+├── src/
+│   ├── ingest.py         # Coleta de dados
+│   ├── logger_config.py  # Configuração de logs
+│   ├── text_processor.py # Pipeline de processamento de texto
+│   ├── transcriber.py    # Transcrição com Whisper
+│   ├── train.py          # Treinamento de modelos
+│   └── predict.py        # Inferência
+├── tests/                # Testes unitários
+└── config.yaml           # Configurações do pipeline
 ```
 
 ### ⚙️ How to Use
@@ -38,29 +58,61 @@ A Transformer sequence-to-sequence model is trained on various speech processing
 
     pip install -r requirements.txt
 
-    Project Configuration: Change config.yaml to define paths, folders and model parameters.
+    ## 2. Configurar o projeto
 
-    Pipeline execution:
+    Edite config.yaml para definir:
 
-        To transcribe audio: python src/transcriber.py
-        
-        To process: python src/preprocess.py
+        Caminhos de áudio e transcrição
 
-        To train: python src/train.py
+        Modelo Whisper
 
-        To predict: python src/predict.py --input data/sample.csv
+        Tokenizer (NLTK ou spaCy)
+
+        Normalização, stopwords, stemming, lematização
+
+        Modelo spaCy
+
+        Embeddings e vector store
+
+    ## 3. Executar o pipeline
     
-    # on Ubuntu or Debian
-    sudo apt update && sudo apt install ffmpeg
+    # Transcrever áudio
 
-    # on Arch Linux
-    sudo pacman -S ffmpeg
+    python src/transcriber.py
 
-    # on MacOS using Homebrew (https://brew.sh/)
-    brew install ffmpeg
+    # Processar texto
 
-    # on Windows using Chocolatey (https://chocolatey.org/)
-    choco install ffmpeg
+    python src/text_processor.py
 
-    # on Windows using Scoop (https://scoop.sh/)
-    scoop install ffmpeg
+    # Treinar modelo
+
+    python src/train.py
+
+    # Fazer predições
+
+    python src/predict.py --input data/sample.csv
+
+
+### 🎧 FFmpeg — Dependência obrigatória
+
+## Whisper requer FFmpeg para manipular arquivos de áudio.
+
+# Ubuntu / Debian
+
+sudo apt update && sudo apt install ffmpeg
+
+# Arch Linux
+
+sudo pacman -S ffmpeg
+
+# macOS (Homebrew)
+
+brew install ffmpeg
+
+# Windows (Chocolatey)
+
+choco install ffmpeg
+
+# Windows (Scoop)
+
+scoop install ffmpeg

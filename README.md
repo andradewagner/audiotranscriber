@@ -4,7 +4,7 @@
   <img src="https://img.shields.io/badge/python-3.10%2B-blue" />
   <img src="https://img.shields.io/badge/license-MIT-green" />
   <img src="https://img.shields.io/badge/status-active-success" />
-  <img src="https://img.shields.io/github/last-commit/SEU_USUARIO/AudioTranscriptor" />
+  <img src="https://img.shields.io/github/last-commit/andradewagner/AudioTranscriptor" />
 </p>
 
 

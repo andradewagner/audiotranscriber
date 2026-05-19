@@ -4,7 +4,7 @@
   <a href="https://python.org"><img src="https://img.shields.io/badge/python-3.10%2B-blue" alt="Python Version" /></a>
   <a href="https://opensource.org"><img src="https://img.shields.io/badge/license-MIT-green" alt="License" /></a>
   <img src="https://img.shields.io/badge/status-active-success" alt="Status" />
-  <a href="https://github.com"><img src="https://img.shields.io/github/last-commit/andradewagner/AudioTranscriptor" alt="Last Commit" /></a>
+  <a href="https://github.com"><img src="https://img.shields.io/github/last-commit/andradewagner/audiotranscriber" alt="Last Commit" /></a>
 </p>
 
 ### 💡 Overview

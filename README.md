@@ -1,59 +1,46 @@
 ### 🚀 AudioTranscriptor — Speech‑to‑Text + NLP Pipeline
 
 <p align="center">
-  <img src="https://img.shields.io/badge/python-3.10%2B-blue" />
-  <img src="https://img.shields.io/badge/license-MIT-green" />
-  <img src="https://img.shields.io/badge/status-active-success" />
-  <img src="https://img.shields.io/github/last-commit/andradewagner/AudioTranscriptor" />
+  <a href="https://python.org"><img src="https://img.shields.io/badge/python-3.10%2B-blue" alt="Python Version" /></a>
+  <a href="https://opensource.org"><img src="https://img.shields.io/badge/license-MIT-green" alt="License" /></a>
+  <img src="https://img.shields.io/badge/status-active-success" alt="Status" />
+  <a href="https://github.com"><img src="https://img.shields.io/github/last-commit/andradewagner/AudioTranscriptor" alt="Last Commit" /></a>
 </p>
-
 
 ### 💡 Overview
 
 AudioTranscriptor is a modular, fully configurable pipeline for:
 
-    Speech‑to‑text transcription using Whisper
+* Speech‑to‑text transcription using Whisper
+* Advanced text preprocessing (normalization, accent removal, stopwords, stemming, lemmatization)
+* Tokenization using NLTK or spaCy
+* Embedding preparation (Sentence Transformers)
+* Vector storage using FAISS
 
-    Advanced text preprocessing (normalization, accent removal, stopwords, stemming, lemmatization)
-
-    Tokenization using NLTK or spaCy
-
-    Embedding preparation (Sentence Transformers)
-
-    Vector storage using FAISS
-
-Everything is controlled through config.yaml, enabling fast experimentation without modifying the source code.
+Everything is controlled through `config.yaml`, enabling fast experimentation without modifying the source code.
 
 ### ✨ Features
 
-    Whisper‑based multilingual speech recognition
-
-    Text normalization and cleaning
-
-    Tokenization with NLTK or spaCy
-
-    Optional stemming and lemmatization
-
-    Accent removal
-
-    Stopword filtering
-
-    Embedding‑ready text output
-
-    Vector store integration (FAISS)
-
-    Clean and extensible architecture
-
-    CLI powered by Typer
+* Whisper‑based multilingual speech recognition
+* Text normalization and cleaning
+* Tokenization with NLTK or spaCy
+* Optional stemming and lemmatization
+* Accent removal
+* Stopword filtering
+* Embedding‑ready text output
+* Vector store integration (FAISS)
+* Clean and extensible architecture
+* CLI powered by Typer
 
 ### 🧠 Architecture Overview
 
+```text
 Audio File → Whisper Transcription → Text Preprocessing → Tokenization → Embeddings → Vector Store
-
+```
 
 ### 🏗️ Project Structure
 
-```
+```text
 ├── data/
 │   ├── raw/              # Original audio files
 │   └── processed/        # Transcriptions and processed text
@@ -69,52 +56,52 @@ Audio File → Whisper Transcription → Text Preprocessing → Tokenization →
 │   │   └── cli.py               # Typer CLI
 ├── tests/                # Unit tests
 └── config.yaml           # Pipeline configuration
-
 ```
 
 ### ⚙️ Installation
-## 1. Install dependencies
 
-    pip install -r requirements.txt
+#### 1. Install dependencies
 
-## 2. Install FFmpeg (required by Whisper)
-# Ubuntu / Debian
+```bash
+pip install -r requirements.txt
+```
 
-    sudo apt update && sudo apt install ffmpeg
+#### 2. Install FFmpeg (required by Whisper)
 
-# 3. Arch Linux
+**Ubuntu / Debian**
+```bash
+sudo apt update && sudo apt install ffmpeg
+```
 
-    sudo pacman -S ffmpeg
+**Arch Linux**
+```bash
+sudo pacman -S ffmpeg
+```
 
-# 4. macOS (Homebrew)
+**macOS (Homebrew)**
+```bash
+brew install ffmpeg
+```
 
-    brew install ffmpeg
-
-# 5. Windows (Chocolatey)
-
-    choco install ffmpeg
+**Windows (Chocolatey)**
+```bash
+choco install ffmpeg
+```
 
 ### 🛠️ Configuration
-Edit config.yaml to define:
 
-    audio and transcription paths
-
-    Whisper model
-
-    tokenizer (NLTK or spaCy)
-
-    normalization options
-
-    stopwords, stemming, lemmatization
-
-    spaCy model
-
-    embedding model
-
-    vector store backend
+Edit `config.yaml` to define:
+* Audio and transcription paths
+* Whisper model
+* Tokenizer (NLTK or spaCy)
+* Normalization options
+* Stopwords, stemming, lemmatization
+* spaCy model
+* Embedding model
+* Vector store backend
 
 Example:
-~~~
+```yaml
 text_processing:
   lowercase: true
   remove_accents: true
@@ -124,23 +111,22 @@ text_processing:
   tokenizer_language: portuguese
   spacy:
     model_name: pt_core_news_md
-~~~
+```
 
 ### 🚀 Usage (CLI)
 
-## 🔊 Transcribe audio
-~~~
+#### 🔊 Transcribe audio
+```bash
 audiotranscriber transcribe data/raw/audio.m4a
-~~~
+```
 
-## ✏️ Process text
-~~~
+#### ✏️ Process text
+```bash
 audiotranscriber process data/processed/transcription.txt
-~~~
+```
 
-## 🧪 Running scripts manually
-
-~~~
+#### 🧪 Running scripts manually
+```bash
 python src/audiotranscriber/transcriber.py
 python src/audiotranscriber/text_processor.py
-~~~
+```

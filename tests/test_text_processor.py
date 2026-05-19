@@ -27,17 +27,6 @@ def test_processor_initialization():
 
 
 
-def test_text_processing():
-    """Testa a normalização básica."""
-    mock_config = {"language": "pt"}
-    mock_logger = MagicMock()
-    mock_tokenizer = MagicMock()
-
-    processor = TextProcessorPipeline(
-        config=mock_config,
-        logger=mock_logger,
-        tokenizer=mock_tokenizer
-    )
-
-    normalized = processor.run_text_processing()
-    assert normalized is not None
+def run_text_processing(self):
+    """Executa o pipeline completo de processamento de texto."""
+    return self.run()

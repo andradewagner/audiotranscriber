@@ -1,9 +1,0 @@
-openai-whisper
-nltk
-spacy
-sentence-transformers
-faiss-cpu
-pyyaml
-numpy
-soundfile
-tqdm

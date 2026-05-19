@@ -1,2 +1,0 @@
-[console_scripts]
-audiotranscriber = audiotranscriber.cli:main

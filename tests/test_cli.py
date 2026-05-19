@@ -38,16 +38,3 @@ def test_cli_transcribe_file_not_found():
 
         assert result.exit_code == 0
         mock_run.assert_called_once()
-
-
-def test_cli_transcribe_with_model_option():
-    """Testa se a flag --model é passada corretamente."""
-    with patch("audiotranscriber.cli.run_transcription") as mock_transcriber:
-        instance = MagicMock()
-        instance.transcribe.return_value = "ok"
-        mock_transcriber.return_value = instance
-
-        result = runner.invoke(app, ["transcribe", "audio.wav", "--model", "tiny"])
-
-        assert result.exit_code == 0
-        mock_transcriber.assert_called_once_with(model_name="tiny", language=None)

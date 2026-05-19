@@ -1,3 +1,36 @@
+Metadata-Version: 2.4
+Name: audiotranscriptor
+Version: 0.1.0
+Summary: A modular speech-to-text and NLP preprocessing pipeline using Whisper, spaCy, NLTK, and FAISS.
+Author: Wagner Andrade
+Author-email: Wagner Andrade <andradewagner@hotmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/SEU_USUARIO/AudioTranscriptor
+Project-URL: Repository, https://github.com/SEU_USUARIO/AudioTranscriptor
+Keywords: whisper,speech-to-text,nlp,audio-processing,machine-learning,faiss,spacy,nltk,embeddings
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Text Processing :: Linguistic
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: openai-whisper
+Requires-Dist: spacy>=3.0
+Requires-Dist: nltk
+Requires-Dist: sentence-transformers
+Requires-Dist: faiss-cpu
+Requires-Dist: typer
+Requires-Dist: pydantic
+Requires-Dist: pyyaml
+Requires-Dist: tqdm
+Requires-Dist: numpy
+Requires-Dist: pydub
+Dynamic: author
+Dynamic: license-file
+Dynamic: requires-python
+
 ### 🚀 AudioTranscriptor — Speech‑to‑Text + NLP Pipeline
 
 ### 💡 Overview

@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "audiotranscriptor"
+version = "0.1.0"
+description = "A modular speech-to-text and NLP preprocessing pipeline using Whisper, spaCy, NLTK, and FAISS."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Wagner Andrade", email = "andradewagner@hotmail.com" }
+]
+
+keywords = [
+    "whisper",
+    "speech-to-text",
+    "nlp",
+    "audio-processing",
+    "machine-learning",
+    "faiss",
+    "spacy",
+    "nltk",
+    "embeddings"
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Linguistic",
+]
+
+dependencies = [
+    "openai-whisper",
+    "spacy>=3.0",
+    "nltk",
+    "sentence-transformers",
+    "faiss-cpu",
+    "typer",
+    "pydantic",
+    "pyyaml",
+    "tqdm",
+    "numpy",
+    "pydub",
+]
+
+[project.urls]
+Homepage = "https://github.com/SEU_USUARIO/AudioTranscriptor"
+Repository = "https://github.com/SEU_USUARIO/AudioTranscriptor"
+
+[project.scripts]
+audiotranscriber = "audiotranscriber.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,13 @@
+include README.md
+include LICENSE
+include pyproject.toml
+
+recursive-include src/audiotranscriber *.yaml
+recursive-include src/audiotranscriber *.txt
+recursive-include src/audiotranscriber *.json
+
+recursive-include src/audiotranscriber/nlp *.py
+recursive-include src/audiotranscriber/nlp *.txt
+recursive-include src/audiotranscriber/nlp *.cfg
+
+recursive-include tests *.py

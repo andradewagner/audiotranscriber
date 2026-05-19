@@ -33,52 +33,49 @@ Dynamic: requires-python
 
 ### 🚀 AudioTranscriptor — Speech‑to‑Text + NLP Pipeline
 
+<p align="center">
+  <a href="https://python.org"><img src="https://img.shields.io/badge/python-3.10%2B-blue" alt="Python Version" /></a>
+  <a href="https://opensource.org"><img src="https://img.shields.io/badge/license-MIT-green" alt="License" /></a>
+  <img src="https://img.shields.io/badge/status-active-success" alt="Status" />
+  <a href="https://github.com"><img src="https://img.shields.io/github/last-commit/andradewagner/audiotranscriber" alt="Last Commit" /></a>
+  <a href="https://github.com"><img src="https://github.com/andradewagner/audiotranscriber/actions/workflows/tests.yml/badge.svg" alt="Last Commit" /></a>
+</p>
+![Tests](https://github.com//AudioTranscriptor/actions/workflows/tests.yml/badge.svg)
+
 ### 💡 Overview
 
 AudioTranscriptor is a modular, fully configurable pipeline for:
 
-    Speech‑to‑text transcription using Whisper
+* Speech‑to‑text transcription using Whisper
+* Advanced text preprocessing (normalization, accent removal, stopwords, stemming, lemmatization)
+* Tokenization using NLTK or spaCy
+* Embedding preparation (Sentence Transformers)
+* Vector storage using FAISS
 
-    Advanced text preprocessing (normalization, accent removal, stopwords, stemming, lemmatization)
-
-    Tokenization using NLTK or spaCy
-
-    Embedding preparation (Sentence Transformers)
-
-    Vector storage using FAISS
-
-Everything is controlled through config.yaml, enabling fast experimentation without modifying the source code.
+Everything is controlled through `config.yaml`, enabling fast experimentation without modifying the source code.
 
 ### ✨ Features
 
-    Whisper‑based multilingual speech recognition
-
-    Text normalization and cleaning
-
-    Tokenization with NLTK or spaCy
-
-    Optional stemming and lemmatization
-
-    Accent removal
-
-    Stopword filtering
-
-    Embedding‑ready text output
-
-    Vector store integration (FAISS)
-
-    Clean and extensible architecture
-
-    CLI powered by Typer
+* Whisper‑based multilingual speech recognition
+* Text normalization and cleaning
+* Tokenization with NLTK or spaCy
+* Optional stemming and lemmatization
+* Accent removal
+* Stopword filtering
+* Embedding‑ready text output
+* Vector store integration (FAISS)
+* Clean and extensible architecture
+* CLI powered by Typer
 
 ### 🧠 Architecture Overview
 
+```text
 Audio File → Whisper Transcription → Text Preprocessing → Tokenization → Embeddings → Vector Store
-
+```
 
 ### 🏗️ Project Structure
 
-```
+```text
 ├── data/
 │   ├── raw/              # Original audio files
 │   └── processed/        # Transcriptions and processed text
@@ -94,71 +91,77 @@ Audio File → Whisper Transcription → Text Preprocessing → Tokenization →
 │   │   └── cli.py               # Typer CLI
 ├── tests/                # Unit tests
 └── config.yaml           # Pipeline configuration
-
 ```
 
-### ⚙️ How to Use
+### ⚙️ Installation
 
-    Install dependencies:
-    Bash
+#### 1. Install dependencies
 
-    pip install -r requirements.txt
+```bash
+pip install -r requirements.txt
+```
 
-    ## 2. Configurar o projeto
+#### 2. Install FFmpeg (required by Whisper)
 
-    Edite config.yaml para definir:
-
-        Caminhos de áudio e transcrição
-
-        Modelo Whisper
-
-        Tokenizer (NLTK ou spaCy)
-
-        Normalização, stopwords, stemming, lematização
-
-        Modelo spaCy
-
-        Embeddings e vector store
-
-    ## 3. Executar o pipeline
-    
-    # Transcrever áudio
-
-    python src/transcriber.py
-
-    # Processar texto
-
-    python src/text_processor.py
-
-    # Treinar modelo
-
-    python src/train.py
-
-    # Fazer predições
-
-    python src/predict.py --input data/sample.csv
-
-
-### 🎧 FFmpeg — Dependência obrigatória
-
-## Whisper requer FFmpeg para manipular arquivos de áudio.
-
-# Ubuntu / Debian
-
+**Ubuntu / Debian**
+```bash
 sudo apt update && sudo apt install ffmpeg
+```
 
-# Arch Linux
-
+**Arch Linux**
+```bash
 sudo pacman -S ffmpeg
+```
 
-# macOS (Homebrew)
-
+**macOS (Homebrew)**
+```bash
 brew install ffmpeg
+```
 
-# Windows (Chocolatey)
-
+**Windows (Chocolatey)**
+```bash
 choco install ffmpeg
+```
 
-# Windows (Scoop)
+### 🛠️ Configuration
 
-scoop install ffmpeg
+Edit `config.yaml` to define:
+* Audio and transcription paths
+* Whisper model
+* Tokenizer (NLTK or spaCy)
+* Normalization options
+* Stopwords, stemming, lemmatization
+* spaCy model
+* Embedding model
+* Vector store backend
+
+Example:
+```yaml
+text_processing:
+  lowercase: true
+  remove_accents: true
+  remove_stopwords: true
+  stemming: true
+  lemmatization: true
+  tokenizer_language: portuguese
+  spacy:
+    model_name: pt_core_news_md
+```
+
+### 🚀 Usage (CLI)
+
+#### 🔊 Transcribe audio
+```bash
+audiotranscriber transcribe data/raw/audio.m4a
+```
+
+#### ✏️ Process text
+```bash
+audiotranscriber process data/processed/transcription.txt
+```
+
+#### 🧪 Running scripts manually
+```bash
+python src/audiotranscriber/transcriber.py
+python src/audiotranscriber/text_processor.py
+```

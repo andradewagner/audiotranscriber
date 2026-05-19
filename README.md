@@ -5,7 +5,9 @@
   <a href="https://opensource.org"><img src="https://img.shields.io/badge/license-MIT-green" alt="License" /></a>
   <img src="https://img.shields.io/badge/status-active-success" alt="Status" />
   <a href="https://github.com"><img src="https://img.shields.io/github/last-commit/andradewagner/audiotranscriber" alt="Last Commit" /></a>
+  <a href="https://github.com"><img src="https://github.com/andradewagner/audiotranscriber/actions/workflows/tests.yml/badge.svg" alt="Last Commit" /></a>
 </p>
+![Tests](https://github.com//AudioTranscriptor/actions/workflows/tests.yml/badge.svg)
 
 ### 💡 Overview
 

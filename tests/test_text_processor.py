@@ -10,11 +10,21 @@ def test_import_text_processor():
 
 
 def test_processor_initialization():
-    """Testa se a classe inicializa com valores padrão."""
-    processor = TextProcessorPipeline()
-    assert processor.language == "portuguese"
-    assert processor.enable_stemming is True
-    assert processor.enable_lemmatization is True
+    """Testa se a classe inicializa com valores fornecidos."""
+    mock_config = {"language": "pt"}
+    mock_logger = MagicMock()
+    mock_tokenizer = MagicMock()
+
+    processor = TextProcessorPipeline(
+        config=mock_config,
+        logger=mock_logger,
+        tokenizer=mock_tokenizer
+    )
+
+    assert processor.config == mock_config
+    assert processor.logger == mock_logger
+    assert processor.tokenizer == mock_tokenizer
+
 
 
 def test_normalize_text():

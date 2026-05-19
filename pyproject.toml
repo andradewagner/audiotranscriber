@@ -3,12 +3,12 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "audiotranscriptor"
+name = "audiotranscriber"
 version = "0.1.0"
-description = "A modular speech-to-text and NLP preprocessing pipeline using Whisper, spaCy, NLTK, and FAISS."
+description = "Transcrição e processamento de áudio"
 readme = "README.md"
+license = "MIT"
 requires-python = ">=3.10"
-license = { text = "MIT" }
 authors = [
     { name = "Wagner Andrade", email = "andradewagner@hotmail.com" }
 ]
@@ -27,7 +27,6 @@ keywords = [
 
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Topic :: Text Processing :: Linguistic",
@@ -48,11 +47,14 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/SEU_USUARIO/AudioTranscriptor"
-Repository = "https://github.com/SEU_USUARIO/AudioTranscriptor"
+Homepage = "https://github.com/andradewagner/audiotranscriber"
+Repository = "https://github.com/andradewagner/audiotranscriber"
 
 [project.scripts]
 audiotranscriber = "audiotranscriber.cli:app"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]

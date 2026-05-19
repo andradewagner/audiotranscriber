@@ -1,7 +1,7 @@
 audio:
   audio_path: data/raw/27042026.m4a
   overwrite_transcriptions: false
-  transcriptions_path: data/processed/27042026v4-whisper-turbo2.txt
+  transcriptions_path: data/processed/27042026v4-whisper-turbo3.txt
 dataset: null
 experiment_name: base_model_transcription
 logger:

@@ -18,7 +18,7 @@ def test_cli_transcribe_missing_argument():
     """Se o usuário não passar o arquivo, deve falhar."""
     result = runner.invoke(app, ["transcribe"])
     assert result.exit_code != 0
-    assert "Error" in result.stdout or "erro" in result.stdout.lower()
+    assert "Missing argument" in result.stderr or "argumento" in result.stderr.lower()
 
 
 def test_cli_transcribe_calls_transcriber():

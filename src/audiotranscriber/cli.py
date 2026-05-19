@@ -13,7 +13,7 @@ def transcribe(
     """
     Roda a transcrição usando o arquivo de configuração.
     """
-
+    
     # Atualiza o caminho do áudio no config.yaml
     with open(config, "r") as f:
         cfg = yaml.safe_load(f)

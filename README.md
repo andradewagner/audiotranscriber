@@ -1,5 +1,13 @@
 ### 🚀 AudioTranscriptor — Speech‑to‑Text + NLP Pipeline
 
+<p align="center">
+  <img src="https://img.shields.io/badge/python-3.10%2B-blue" />
+  <img src="https://img.shields.io/badge/license-MIT-green" />
+  <img src="https://img.shields.io/badge/status-active-success" />
+  <img src="https://img.shields.io/github/last-commit/SEU_USUARIO/AudioTranscriptor" />
+</p>
+
+
 ### 💡 Overview
 
 AudioTranscriptor is a modular, fully configurable pipeline for:
@@ -64,68 +72,75 @@ Audio File → Whisper Transcription → Text Preprocessing → Tokenization →
 
 ```
 
-### ⚙️ How to Use
-
-    Install dependencies:
-    Bash
+### ⚙️ Installation
+## 1. Install dependencies
 
     pip install -r requirements.txt
 
-    ## 2. Configurar o projeto
-
-    Edite config.yaml para definir:
-
-        Caminhos de áudio e transcrição
-
-        Modelo Whisper
-
-        Tokenizer (NLTK ou spaCy)
-
-        Normalização, stopwords, stemming, lematização
-
-        Modelo spaCy
-
-        Embeddings e vector store
-
-    ## 3. Executar o pipeline
-    
-    # Transcrever áudio
-
-    python src/transcriber.py
-
-    # Processar texto
-
-    python src/text_processor.py
-
-    # Treinar modelo
-
-    python src/train.py
-
-    # Fazer predições
-
-    python src/predict.py --input data/sample.csv
-
-
-### 🎧 FFmpeg — Dependência obrigatória
-
-## Whisper requer FFmpeg para manipular arquivos de áudio.
-
+## 2. Install FFmpeg (required by Whisper)
 # Ubuntu / Debian
 
-sudo apt update && sudo apt install ffmpeg
+    sudo apt update && sudo apt install ffmpeg
 
-# Arch Linux
+# 3. Arch Linux
 
-sudo pacman -S ffmpeg
+    sudo pacman -S ffmpeg
 
-# macOS (Homebrew)
+# 4. macOS (Homebrew)
 
-brew install ffmpeg
+    brew install ffmpeg
 
-# Windows (Chocolatey)
+# 5. Windows (Chocolatey)
 
-choco install ffmpeg
+    choco install ffmpeg
 
-# Windows (Scoop)
+### 🛠️ Configuration
+Edit config.yaml to define:
 
-scoop install ffmpeg
+    audio and transcription paths
+
+    Whisper model
+
+    tokenizer (NLTK or spaCy)
+
+    normalization options
+
+    stopwords, stemming, lemmatization
+
+    spaCy model
+
+    embedding model
+
+    vector store backend
+
+Example:
+~~~
+text_processing:
+  lowercase: true
+  remove_accents: true
+  remove_stopwords: true
+  stemming: true
+  lemmatization: true
+  tokenizer_language: portuguese
+  spacy:
+    model_name: pt_core_news_md
+~~~
+
+### 🚀 Usage (CLI)
+
+## 🔊 Transcribe audio
+~~~
+audiotranscriber transcribe data/raw/audio.m4a
+~~~
+
+## ✏️ Process text
+~~~
+audiotranscriber process data/processed/transcription.txt
+~~~
+
+## 🧪 Running scripts manually
+
+~~~
+python src/audiotranscriber/transcriber.py
+python src/audiotranscriber/text_processor.py
+~~~

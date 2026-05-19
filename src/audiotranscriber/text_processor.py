@@ -1,15 +1,15 @@
 import nltk
 import spacy
 import yaml
-from logger_config import get_logger
+from audiotranscriber.logger_config import get_logger
 
 nltk.download("punkt")
 nltk.download("punkt_tab")
 nltk.download("stopwords")
 
-from nlp.nltk_tokenizer import NLTKTokenizer
-from nlp.preprocessor import Preprocessor
-from nlp.spacy_tokenizer import SpacyTokenizer
+from audiotranscriber.nlp.nltk_tokenizer import NLTKTokenizer
+from audiotranscriber.nlp.preprocessor import Preprocessor
+from audiotranscriber.nlp.spacy_tokenizer import SpacyTokenizer
 
 class TextProcessorPipeline:
     def __init__(self, config, logger, tokenizer, preprocessor=None, spacy_tokenizer=None, embedder=None, vector_store=None):
@@ -32,26 +32,13 @@ class TextProcessorPipeline:
         self.logger.info("Starting text processing pipeline...")
         text = self.load_text()
 
-        self.logger.info(f"Text loaded. First 100 characters: {text[:100]}")
-
         # Pré-processamento
-        normalized_text = self.preprocessor.preprocess(text)
+        preprocessed_text = self.preprocessor.preprocess(text)
+        self.logger.info(f"Text loaded. First 100 characters: {preprocessed_text[:100]}")
+        return preprocessed_text
 
-        # Tokenização NLTK
-        sentences = self.tokenizer.tokenize_sentences(normalized_text)
-
-        # spaCy
-        print("Texto com spaCy:")
-        print(self.spacy_tokenizer.process_text(text))
-        print(self.spacy_tokenizer.tokenize_words(text))
-        print("*" * 100)
-
-        self.logger.info(f"Found {len(sentences)} sentences.")
-
-        return sentences
-
-if __name__ == "__main__":
-    config = yaml.safe_load(open("config.yaml"))
+def run_text_processing(config_path: str = "config.yaml"):
+    config = yaml.safe_load(open(config_path))
     logger = get_logger("pipeline", config)
 
     tp = config["text_processing"]
@@ -71,7 +58,6 @@ if __name__ == "__main__":
     )
 
     tokenizer = NLTKTokenizer(language=config["text_processing"]["tokenizer_language"])
-    spacy_tokenizer = SpacyTokenizer(model_name=config["text_processing"]["spacy"]["model_name"])
 
     pipeline = TextProcessorPipeline(
         config=config,
@@ -81,5 +67,4 @@ if __name__ == "__main__":
         spacy_tokenizer=spacy_tokenizer
     )
 
-    resultado = pipeline.run()
-    print(f"Resultado: {resultado[:5]}")
+    return pipeline.run()

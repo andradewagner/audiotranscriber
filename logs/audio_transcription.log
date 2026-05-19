@@ -1121,3 +1121,40 @@ Ela vai tirar o que? Ela vai tirar o que? Ela vai tirar o que? A gente vai fazer
 2026-05-18 20:24:27,266 [INFO] (pipeline) Loading text file from: ./data/processed/27042026v4-whisper-turbo.txt
 2026-05-18 20:24:27,266 [INFO] (pipeline) Text loaded. First 100 characters: Já comecei a gravar. Boa noite, hoje, dia 27 de abril de 2026, apenas para deixar registrado que tod
 2026-05-18 20:24:32,251 [INFO] (pipeline) Found 1 sentences.
+2026-05-19 13:45:04,150 [INFO] (pipeline) Starting text processing pipeline...
+2026-05-19 13:45:04,150 [INFO] (pipeline) Loading text file from: ./data/processed/27042026v4-whisper-turbo.txt
+2026-05-19 13:45:04,150 [INFO] (pipeline) Text loaded. First 100 characters: Já comecei a gravar. Boa noite, hoje, dia 27 de abril de 2026, apenas para deixar registrado que tod
+2026-05-19 13:45:08,973 [INFO] (pipeline) Found 1 sentences.
+2026-05-19 13:45:59,418 [ERROR] (__main__) flag de overwrite igual a false, mude a flag, renomeie ou apague o arquivo de saída na pasta processed
+2026-05-19 13:46:20,284 [INFO] (__main__) Starting pipeline for project: AudioTranscriptor
+2026-05-19 13:46:20,284 [INFO] (__main__) Experiment: base_model_transcription
+2026-05-19 13:46:20,284 [INFO] (__main__) Loading audio file from: ./data/raw/27042026.m4a
+2026-05-19 13:46:31,879 [INFO] (__main__) Audio loaded in 11.59 seconds.
+2026-05-19 13:46:31,879 [INFO] (__main__) Loading Whisper model ('turbo')...
+2026-05-19 13:46:45,434 [INFO] (__main__) Model loaded in 13.55 seconds.
+2026-05-19 13:46:45,434 [INFO] (__main__) Starting audio transcription...
+2026-05-19 13:50:17,809 [INFO] (__main__) Transcription completed in 212.37 seconds.
+2026-05-19 13:50:17,812 [INFO] (__main__) Saving transcription text to: ./data/processed/27042026v4-whisper-turbo2.txt
+2026-05-19 13:50:17,812 [INFO] (__main__) Process finished successfully!
+2026-05-19 13:50:17,813 [INFO] (__main__) Total time taken: 3m 57.53s (237.5282 seconds)
+2026-05-19 14:12:56,641 [ERROR] (audiotranscriber.transcriber) flag de overwrite igual a false, mude a flag, renomeie ou apague o arquivo de saída na pasta processed
+2026-05-19 14:12:56,643 [ERROR] (audiotranscriber.transcriber) flag de overwrite igual a false, mude a flag, renomeie ou apague o arquivo de saída na pasta processed
+2026-05-19 14:13:34,520 [ERROR] (audiotranscriber.transcriber) flag de overwrite igual a false, mude a flag, renomeie ou apague o arquivo de saída na pasta processed
+2026-05-19 14:31:47,081 [INFO] (pipeline) Starting text processing pipeline...
+2026-05-19 14:31:47,081 [INFO] (pipeline) Loading text file from: data/processed/27042026v4-whisper-turbo2.txt
+2026-05-19 14:31:47,081 [INFO] (pipeline) Text loaded. First 100 characters: Já comecei a gravar. Boa noite, hoje, dia 27 de abril de 2026, apenas para deixar registrado que tod
+2026-05-19 14:34:54,986 [INFO] (pipeline) Starting text processing pipeline...
+2026-05-19 14:34:54,986 [INFO] (pipeline) Loading text file from: data/processed/27042026v4-whisper-turbo2.txt
+2026-05-19 14:34:54,986 [INFO] (pipeline) Text loaded. First 100 characters: Já comecei a gravar. Boa noite, hoje, dia 27 de abril de 2026, apenas para deixar registrado que tod
+2026-05-19 14:36:23,072 [INFO] (pipeline) Starting text processing pipeline...
+2026-05-19 14:36:23,072 [INFO] (pipeline) Loading text file from: data/processed/27042026v4-whisper-turbo2.txt
+2026-05-19 14:36:23,072 [INFO] (pipeline) Text loaded. First 100 characters: Já comecei a gravar. Boa noite, hoje, dia 27 de abril de 2026, apenas para deixar registrado que tod
+2026-05-19 14:44:27,234 [INFO] (pipeline) Starting text processing pipeline...
+2026-05-19 14:44:27,234 [INFO] (pipeline) Loading text file from: data/processed/27042026v4-whisper-turbo2.txt
+2026-05-19 14:44:27,234 [INFO] (pipeline) Text loaded. First 100 characters: Já comecei a gravar. Boa noite, hoje, dia 27 de abril de 2026, apenas para deixar registrado que tod
+2026-05-19 14:46:27,745 [INFO] (pipeline) Starting text processing pipeline...
+2026-05-19 14:46:27,745 [INFO] (pipeline) Loading text file from: data/processed/27042026v4-whisper-turbo2.txt
+2026-05-19 14:46:27,745 [INFO] (pipeline) Text loaded. First 100 characters: Já comecei a gravar. Boa noite, hoje, dia 27 de abril de 2026, apenas para deixar registrado que tod
+2026-05-19 14:54:01,443 [INFO] (pipeline) Starting text processing pipeline...
+2026-05-19 14:54:01,443 [INFO] (pipeline) Loading text file from: data/processed/27042026v4-whisper-turbo2.txt
+2026-05-19 14:54:02,628 [INFO] (pipeline) Text loaded. First 100 characters: Ja comecr grav bom noit hoj dia 27 abril 2026 apen deixr registr tod mund aceit gravaca assembl enta

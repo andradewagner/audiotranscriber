@@ -3,7 +3,7 @@ import whisper
 import yaml
 import time
 from typing import Dict, Any
-from logger_config import get_logger
+from audiotranscriber.logger_config import get_logger
 
 class AudioTranscriberPipeline:
     def __init__(self, config_path: str = "config.yaml"):
@@ -128,6 +128,6 @@ class AudioTranscriberPipeline:
             self.logger.error(f"An error occurred during execution: {str(e)}", exc_info=True)
             raise
 
-if __name__ == "__main__":
+def run_transcription(config_path: str = "config.yaml"):
     pipeline = AudioTranscriberPipeline(config_path="config.yaml")
     pipeline.run()

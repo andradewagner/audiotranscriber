@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: audiotranscriber
+Version: 0.1.0
+Summary: Modular Speech-to-Text pipeline using Whisper, spaCy, NLTK and FAISS.
+Author: Wagner Andrade
+Requires-Python: >=3.9
+Requires-Dist: openai-whisper
+Requires-Dist: nltk
+Requires-Dist: spacy
+Requires-Dist: sentence-transformers
+Requires-Dist: faiss-cpu
+Requires-Dist: pyyaml
+Requires-Dist: numpy
+Requires-Dist: soundfile
+Requires-Dist: tqdm
+Dynamic: author
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary

@@ -1,52 +1,30 @@
-# Project Metadata
-project_name: "AudioTranscriptor"
-experiment_name: "base_model_transcription"
-
 audio:
-  audio_path: "./data/raw/27042026.m4a"
-  transcriptions_path: "./data/processed/27042026v4-whisper-turbo.txt"
+  audio_path: data/raw/27042026.m4a
   overwrite_transcriptions: false
-# Data Configuration
-dataset:
-
+  transcriptions_path: data/processed/27042026v4-whisper-turbo2.txt
+dataset: null
+experiment_name: base_model_transcription
 logger:
-  formatter: "%(asctime)s [%(levelname)s] (%(name)s) %(message)s"
-  log_file: "logs/audio_transcription.log"
-  log_level: "INFO"
-
-whisper:
-  model: "turbo" # Options: tiny, base, small, medium, large, turbo
-
+  formatter: '%(asctime)s [%(levelname)s] (%(name)s) %(message)s'
+  log_file: logs/audio_transcription.log
+  log_level: INFO
+project_name: AudioTranscriptor
 text_processing:
-  tokenizer: nltk
-  tokenizer_language: "portuguese"
-
-  # Normalização
-  normalize_text: true
-  normalization_method: "NFKD"
-
-  # Stopwords
-  remove_stopwords: true
-
-  # Stemming
-  stemming: true
-  stemmer_type: "snowball"
-
-  # Lemmatização
+  embedder: sentence_transformers
   lemmatization: true
-
-  # Remoção de ruído
+  lowercase: true
+  normalization_method: NFKD
+  normalize_text: true
+  remove_accents: true
   remove_fillers: true
   remove_special: true
-  remove_accents: true
-  lowercase: true
-
-  # spaCy
+  remove_stopwords: true
   spacy:
-    model_name: "pt_core_news_md"
-
-  # Embeddings
-  embedder: sentence_transformers
-
-  # Vector store
+    model_name: pt_core_news_md
+  stemmer_type: snowball
+  stemming: true
+  tokenizer: nltk
+  tokenizer_language: portuguese
   vector_store: faiss
+whisper:
+  model: turbo

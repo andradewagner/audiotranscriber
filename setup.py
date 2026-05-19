@@ -20,4 +20,10 @@ setup(
         "tqdm"
     ],
     include_package_data=True,
+    entry_points={
+        "console_scripts": [
+            "audiotranscriber=audiotranscriber.cli:main",
+    ],
+},
+
 )

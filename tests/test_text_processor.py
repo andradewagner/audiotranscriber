@@ -24,9 +24,3 @@ def test_processor_initialization():
     assert processor.config == mock_config
     assert processor.logger == mock_logger
     assert processor.tokenizer == mock_tokenizer
-
-
-
-def run_text_processing(self):
-    """Executa o pipeline completo de processamento de texto."""
-    return self.run()

@@ -67,4 +67,10 @@ def run_text_processing(config_path: str = "config.yaml"):
         spacy_tokenizer=spacy_tokenizer
     )
 
-    return pipeline.run()
+    processed_text = pipeline.run()
+    
+    print("="*188)
+    print(processed_text)
+    print("="*188)
+
+    return processed_text

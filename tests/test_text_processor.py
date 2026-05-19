@@ -1,17 +1,17 @@
 import pytest
 from unittest.mock import patch, MagicMock
-from audiotranscriber.text_processor import TextProcessor
+from audiotranscriber.text_processor import TextProcessorPipeline
 
 
 def test_import_text_processor():
     """Verifica se o módulo importa corretamente."""
-    from audiotranscriber.text_processor import TextProcessor
-    assert TextProcessor is not None
+    from audiotranscriber.text_processor import TextProcessorPipeline
+    assert TextProcessorPipeline is not None
 
 
 def test_processor_initialization():
     """Testa se a classe inicializa com valores padrão."""
-    processor = TextProcessor()
+    processor = TextProcessorPipeline()
     assert processor.language == "portuguese"
     assert processor.enable_stemming is True
     assert processor.enable_lemmatization is True
@@ -19,7 +19,7 @@ def test_processor_initialization():
 
 def test_normalize_text():
     """Testa a normalização básica."""
-    processor = TextProcessor()
+    processor = TextProcessorPipeline()
     text = "Olá, Mundo! 123"
     normalized = processor.normalize(text)
     assert normalized == "olá mundo 123"
@@ -27,7 +27,7 @@ def test_normalize_text():
 
 def test_remove_stopwords():
     """Testa remoção de stopwords usando mock do NLTK."""
-    processor = TextProcessor()
+    processor = TextProcessorPipeline()
 
     with patch("audiotranscriber.text_processor.stopwords.words", return_value=["de", "a", "o"]):
         result = processor.remove_stopwords("gosto de programar a noite")
@@ -36,7 +36,7 @@ def test_remove_stopwords():
 
 def test_stemming():
     """Testa stemming usando mock do NLTK."""
-    processor = TextProcessor()
+    processor = TextProcessorPipeline()
 
     mock_stemmer = MagicMock()
     mock_stemmer.stem.side_effect = lambda w: w[:-1]  # simula um stemmer simples
@@ -48,7 +48,7 @@ def test_stemming():
 
 def test_lemmatization():
     """Testa lematização usando mock do spaCy."""
-    processor = TextProcessor()
+    processor = TextProcessorPipeline()
 
     mock_token = MagicMock()
     mock_token.lemma_ = "correr"
@@ -63,7 +63,7 @@ def test_lemmatization():
 
 def test_full_pipeline():
     """Testa a pipeline completa com mocks."""
-    processor = TextProcessor()
+    processor = TextProcessorPipeline()
 
     with patch("audiotranscriber.text_processor.stopwords.words", return_value=["de"]):
         with patch("audiotranscriber.text_processor.SnowballStemmer") as mock_stem:

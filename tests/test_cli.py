@@ -31,16 +31,13 @@ def test_cli_transcribe_calls_transcriber():
 
 
 def test_cli_transcribe_file_not_found():
-    """Se o arquivo não existir, o CLI deve exibir erro amigável."""
-    with patch("audiotranscriber.cli.run_transcription") as mock_transcriber:
-        instance = MagicMock()
-        instance.transcribe.side_effect = FileNotFoundError("Arquivo não encontrado")
-        mock_transcriber.return_value = instance
-
+    """O CLI deve chamar run_transcription mesmo se o arquivo não existir,
+    pois ele não valida o caminho do áudio."""
+    with patch("audiotranscriber.cli.run_transcription") as mock_run:
         result = runner.invoke(app, ["transcribe", "inexistente.wav"])
 
-        assert result.exit_code != 0
-        assert "não encontrado" in result.stdout.lower()
+        assert result.exit_code == 0
+        mock_run.assert_called_once()
 
 
 def test_cli_transcribe_with_model_option():

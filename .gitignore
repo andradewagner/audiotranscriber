@@ -1,9 +1,73 @@
-# Ignoraring data and models
+# ============================
+# DATA
+# ============================
 data/raw/*
 data/processed/*
-models/*
-
-# Keeping folder structure
 !data/raw/.gitkeep
 !data/processed/.gitkeep
+
+# ============================
+# MODELS
+# ============================
+models/*
 !models/.gitkeep
+
+# ============================
+# AUDIO FILES
+# ============================
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.ogg
+
+# ============================
+# TRANSCRIPÇÕES E TEXTOS
+# ============================
+*.txt
+*.json
+*.csv
+
+# mantém arquivos de config
+!config.yaml
+
+# ============================
+# LOGS
+# ============================
+logs/*
+!logs/.gitkeep
+*.log
+
+# ============================
+# CACHE / TEMP
+# ============================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.tmp
+*.temp
+
+# ============================
+# NLP / ML CACHES
+# ============================
+.nltk/
+.spacy/
+.faiss/
+.cache/
+.cache/*
+
+# ============================
+# VENV
+# ============================
+venv/
+.env/
+.audiotranscriptor/
+
+# ============================
+# IDE / EDITOR
+# ============================
+.vscode/
+.idea/
+*.swp
+*.swo

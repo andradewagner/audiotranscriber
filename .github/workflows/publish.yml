@@ -33,5 +33,4 @@ jobs:
           TWINE_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
         run: |
           twine upload \
-            --repository-url https://upload.pypi.org/legacy/ \
-            dist/*
+            --repository-url https://upload.github.com/${{ github.repository_owner }}/ dist/*

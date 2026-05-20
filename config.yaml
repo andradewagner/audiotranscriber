@@ -8,6 +8,9 @@ logger:
   formatter: '%(asctime)s [%(levelname)s] (%(name)s) %(message)s'
   log_file: logs/audio_transcription.log
   log_level: INFO
+model:
+  kernel: linear
+  type: svm
 project_name: AudioTranscriptor
 text_processing:
   embedder: sentence_transformers
@@ -26,5 +29,11 @@ text_processing:
   tokenizer: nltk
   tokenizer_language: portuguese
   vector_store: faiss
+vectorization:
+  max_features: 5000
+  method: bow
+  ngram_range:
+  - 1
+  - 2
 whisper:
   model: turbo
